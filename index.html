@@ -2,11 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
 
     <!--CSS EXTERNAL-->
-    <link rel="stylesheet" href="css\style.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!--Tailwind CSS-->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
    <!--Hero Website--> 
@@ -15,16 +18,54 @@
     </header>
     <main>
         <!--To Do Input-->
-        <form>
-            <input type="text" placeholder="Add a new task...">
-            <input type="date" placeholder="Due Date">
+        <form class="flex justify-between gap-[8px] mb-[8px]">
+            <div class="flex gap-[8px]">
+                <input type="text" class="border rounded p-[8px]" placeholder="Add a new task...">
+                <input type="date" class="border rounded p-[8px]" placeholder="Due Date">
 
-            <button>Add</button>
+            </div>
+                 <button class="bg-[#E6E6FA] text-black rounded w-[30px] h-[30px]">+</button>
+           
         </form>
-    </main>
 
-    <footer>
-        <span>&copy; 2025 Darren Kerston Huang. All rights reserved.</span>
-    </footer>
+        <!--To Do Action-->
+        <section class="flex justify-between gap-[8px] mb-[8px]">
+            <div class="flex gap-[8px]">
+                <button class="bg-green-500 text-white rounded w-[150px] h-[40px]">Show Completed</button>
+                <button class="bg-blue-500 text-white rounded w-[120px] h-[40px]">Show All</button>
+            </div>
+            
+            <div class="mb-4">
+                <button id="delete-all" class="bg-red-600 text-white rounded w-[120px] h-[40px]">Delete All</button>
+            </div>
+            <script>
+                document.getElementById('delete-all').addEventListener('click', function() {
+                    const todoList = document.getElementById('todo-list');
+                    todoList.innerHTML = '';
+                });
+            </script>
+         
+        <!--To Do List-->
+        <section class="flex justify-between gap-[8px] mb-[8px]">
+            <div class="flex gap-[8px]">
+                <button class="bg-green-500 text-white rounded w-[150px] h-[40px]">Show Completed</button>
+                <button class="bg-blue-500 text-white rounded w-[120px] h-[40px]">Show All</button>
+            </div>
+            
+            <div class="mb-4">
+                <button id="delete-all" class="bg-red-600 text-white rounded w-[120px] h-[40px]">Delete All</button>
+            </div>
+            <script>
+                document.getElementById('delete-all').addEventListener('click', function() {
+                    const todoList = document.getElementById('todo-list');
+                    todoList.innerHTML = '';
+                });
+            </script>
+        </section>
+    </main>
+<footer>
+        <span class="block text-center text-gray-500 py-4">&copy; 2025 Darren Kerston Huang. All rights reserved.</span>
+</footer>
+    
 </body>
 </html>
