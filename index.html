@@ -1,87 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title class="">To Do List</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>To Do List</title>
 
-    <!--CSS EXTERNAL-->
-    <link rel="stylesheet" href="css/style.css">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <!--Tailwind CSS-->
-    <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .font-comic-sans {
+      font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    }
+  </style>
 </head>
-<body>
-   <!--Hero Website--> 
-    <header>
-        <h1 class="text-5xl text-white font-comic-sans py-6">To Do List</h1>
-        <style>
-            .font-comic-sans {
-                font-family: 'Comic Sans MS', 'Comic Sans', cursive;
-            }
-            header {
-                background-color: #484b70;
-                border-top-left-radius: 24px;
-                border-top-right-radius: 24px;
-            }
-            header {
-                background-color: #484b70;
-            }
-        </style>
-    </header>
-    <main>
-         <style>
-        main {
-            background-color: #484b70;
-            border-bottom-left-radius: 24px;
-            border-bottom-right-radius: 24px;
-            padding-bottom: 24px;
-        }
-         </style>
-        <!--To Do Input-->
-        <form class="flex justify-between gap-[8px] mb-[8px]" id= "to do form" onsubmit="addTask();return false;">
-            <div class="flex gap-[8px]">
-                <div class="flex flex-1 justify-center gap-[8px] px-4">
-                    <input type="text" id="task-input" class="border rounded p-[8px] w-[220px]" placeholder="Add a new task...">
-                    <input type="date" id="due-date-input"class="border rounded p-[8px] w-[160px]" placeholder="Due Date">
-                </div>
-            </div>
-                <div class="pr-4">
-                    <button type="button" class="bg-[#E6E6FA] text-black rounded w-[30px] h-[30px]" onclick="addTask();">+</button>
-                </div>
-           
-        </form>
+<body class="bg-gray-200">
 
-        <!--To Do Action-->
-        <section class="flex justify-between gap-[-100px] mb-[8px]">
-            <div class="flex gap-[8px] pl-4 pr-4">
-                <button class="bg-green-500 text-white rounded w-[150px] h-[40px]">Show Completed</button>
-                <button class="bg-blue-500 text-white rounded w-[120px] h-[40px]">Show All</button>
-            </div>
+ <!-- Wrapper with 900px width and purple background -->
+<div class="bg-[#484b70] max-w-[900px] mx-auto rounded-3xl overflow-hidden mt-6 shadow-lg">
 
-        <div class="flex k-end pr-4 mb-0 w-full">
-            <div class="flex justify-end w-full">
-                <button class="bg-red-500 text-white rounded w-[150px] h-[40px]">Delete All</button>
-            </div>
-        </div>
-         </section>
-    <!--To Do List-->
+  <!-- Header -->
+  <header class="text-white text-center py-6">
+    <h1 class="text-5xl font-comic-sans">To Do List</h1>
+  </header>
+
+  <!-- Main Content -->
+  <main class="px-4 pb-8">
+
+    <!-- Task Input -->
+    <form class="flex flex-wrap justify-between gap-4 mb-6 pt-2">
+      <div class="flex flex-wrap gap-4 flex-grow">
+        <input type="text" id="task-input" class="border rounded p-2 w-[220px]" placeholder="Add a new task..." />
+        <input type="date" id="due-date-input" class="border rounded p-2 w-[160px]" />
+      </div>
+      <button type="button" onclick="addTask()" class="bg-[#E6E6FA] text-black rounded w-10 h-10 text-xl">+</button>
+    </form>
+
+    <!-- Task Controls -->
+    <section class="flex flex-wrap justify-between items-center gap-4 mb-6">
+      <div class="flex flex-wrap gap-2 items-center">
+        <input type="text" id="filter-input" placeholder="Search tasks..." class="border rounded p-2 w-[200px]">
+        <button onclick="filterTasks()" class="bg-gray-500 text-white px-3 py-1 rounded">Filter</button>
+        <button onclick="displayTasks()" class="bg-blue-500 text-white px-3 py-1 rounded">Show All</button>
+        <button onclick="displayTasks(tasks.filter(task => task.completed))" class="bg-green-500 text-white px-3 py-1 rounded">Show Completed</button>
+      </div>
+      <div>
+        <button onclick="deleteAllTask()" class="bg-red-500 text-white px-4 py-2 rounded">Delete All</button>
+      </div>
     </section>
-        <header>
-            <h2 class="text-2xl font-comic-sans text-white">Tasks</h2>
-        </header>
 
-    <!--Tasks-->
-        <div>
-            <p class="text-white font-comic-sans">No Tasks At The Moment</p>
-        </div>
-     </section>
-    </main>
-<footer>
-        <span class="block text-center text-gray-500 py-4">&copy; 2025 Darren Kerston Huang. All rights reserved.</span>
-</footer>
+    <!-- Task List -->
+    <section>
+      <h2 class="text-2xl font-comic-sans text-white mb-2">Tasks</h2>
+      <ul id="task-list" class="text-white font-comic-sans pl-4 space-y-2">
+        <!-- Rendered tasks will appear here -->
+      </ul>
+    </section>
+  </main>
+</div>
 
-<!--JavaScript External-->
-    <script src="js\script.js"></script>
+  <!-- Footer -->
+  <footer>
+    <span class="block text-center text-gray-500 py-4">&copy; 2025 Darren Kerston Huang. All rights reserved.</span>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/script.js"></script>
 </body>
 </html>
