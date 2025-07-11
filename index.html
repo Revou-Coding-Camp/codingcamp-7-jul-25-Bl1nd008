@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Do List</title>
+    <title class="">To Do List</title>
 
     <!--CSS EXTERNAL-->
     <link rel="stylesheet" href="css/style.css">
@@ -14,7 +14,15 @@
 <body>
    <!--Hero Website--> 
     <header>
-        <h1>To Do List</h1>
+        <h1 class="text-5xl text-white font-comic-sans py-6">To Do List</h1>
+        <style>
+            .font-comic-sans {
+                font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+            }
+            header {
+                background-color: #E6E6FA;
+            }
+        </style>
     </header>
     <main>
         <!--To Do Input-->
@@ -46,22 +54,8 @@
             </script>
          
         <!--To Do List-->
-        <section class="flex justify-between gap-[8px] mb-[8px]">
-            <div class="flex gap-[8px]">
-                <button class="bg-green-500 text-white rounded w-[150px] h-[40px]">Show Completed</button>
-                <button class="bg-blue-500 text-white rounded w-[120px] h-[40px]">Show All</button>
-            </div>
-            
-            <div class="mb-4">
-                <button id="delete-all" class="bg-red-600 text-white rounded w-[120px] h-[40px]">Delete All</button>
-            </div>
-            <script>
-                document.getElementById('delete-all').addEventListener('click', function() {
-                    const todoList = document.getElementById('todo-list');
-                    todoList.innerHTML = '';
-                });
-            </script>
-        </section>
+       
+        
     </main>
 <footer>
         <span class="block text-center text-gray-500 py-4">&copy; 2025 Darren Kerston Huang. All rights reserved.</span>
