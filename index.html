@@ -20,46 +20,68 @@
                 font-family: 'Comic Sans MS', 'Comic Sans', cursive;
             }
             header {
-                background-color: #E6E6FA;
+                background-color: #484b70;
+                border-top-left-radius: 24px;
+                border-top-right-radius: 24px;
+            }
+            header {
+                background-color: #484b70;
             }
         </style>
     </header>
     <main>
+         <style>
+        main {
+            background-color: #484b70;
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
+            padding-bottom: 24px;
+        }
+         </style>
         <!--To Do Input-->
         <form class="flex justify-between gap-[8px] mb-[8px]">
             <div class="flex gap-[8px]">
-                <input type="text" class="border rounded p-[8px]" placeholder="Add a new task...">
-                <input type="date" class="border rounded p-[8px]" placeholder="Due Date">
-
+                <div class="flex flex-1 justify-center gap-[8px] px-4">
+                    <input type="text" class="border rounded p-[8px] w-[220px]" placeholder="Add a new task...">
+                    <input type="date" class="border rounded p-[8px] w-[160px]" placeholder="Due Date">
+                </div>
             </div>
-                 <button class="bg-[#E6E6FA] text-black rounded w-[30px] h-[30px]">+</button>
+                <div class="pr-4">
+                    <button class="bg-[#E6E6FA] text-black rounded w-[30px] h-[30px]">+</button>
+                </div>
            
         </form>
 
         <!--To Do Action-->
-        <section class="flex justify-between gap-[8px] mb-[8px]">
-            <div class="flex gap-[8px]">
+        <section class="flex justify-between gap-[-100px] mb-[8px]">
+            <div class="flex gap-[8px] pl-4 pr-4">
                 <button class="bg-green-500 text-white rounded w-[150px] h-[40px]">Show Completed</button>
                 <button class="bg-blue-500 text-white rounded w-[120px] h-[40px]">Show All</button>
             </div>
-            
-            <div class="mb-4">
-                <button id="delete-all" class="bg-red-600 text-white rounded w-[120px] h-[40px]">Delete All</button>
+
+        <div class="flex k-end pr-4 mb-0 w-full">
+            <div class="flex justify-end w-full">
+                <button class="bg-red-500 text-white rounded w-[150px] h-[40px]">Delete All</button>
             </div>
-            <script>
-                document.getElementById('delete-all').addEventListener('click', function() {
-                    const todoList = document.getElementById('todo-list');
-                    todoList.innerHTML = '';
-                });
-            </script>
-         
-        <!--To Do List-->
-       
-        
+        </div>
+         </section>
+    <!--To Do List-->
+    </section>
+        <header>
+            <h2 class="text-2xl font-comic-sans text-white">Tasks</h2>
+        </header>
+
+    <!--Tasks-->
+        <div>
+            <p class="text-white font-comic-sans">No Tasks At The Moment</p>
+        </div>
+     </section>
     </main>
 <footer>
         <span class="block text-center text-gray-500 py-4">&copy; 2025 Darren Kerston Huang. All rights reserved.</span>
 </footer>
-    
+
+<!--JavaScript External-->
+    <script src="js\script.js"></script>
 </body>
 </html>
