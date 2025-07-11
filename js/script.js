@@ -1,39 +1,21 @@
 console.log('JavaScript is working!');
+//Global variable to store tasks
+let tasks = [];
 
+// Function to add a task
 function addTask() { 
-    const taskInput = document.getElementById('taskInput');
-    const taskList = document.getElementById('taskList');
+    const taskInput = document.getElementById('task-input');
+    const dueDateInput = document.getElementById('due-date-input');
 
-    if (taskInput.value.trim() === '') {
-        alert('Please enter a task.');
-        return;
-    }
-
-    const newTask = document.createElement('li');
-    newTask.textContent = taskInput.value;
-    taskList.appendChild(newTask);
-    taskInput.value = ''; // Clear the input field
-
+    console.log('Adding task:', taskInput.value, 'Due date:', dueDateInput.value);
 }
 
+// Function to delete a task
 function deleteAllTask() {
-    const taskList = document.getElementById('taskList');
-    while (taskList.firstChild) {
-        taskList.removeChild(taskList.firstChild);
-    }
+  
 
 }
 
-function filter() {    const filterInput = document.getElementById('filterInput').value.toLowerCase();
-    const taskList = document.getElementById('taskList');
-    const tasks = taskList.getElementsByTagName('li');
-
-    for (let i = 0; i < tasks.length; i++) {
-        const taskText = tasks[i].textContent.toLowerCase();
-        if (taskText.includes(filterInput)) {
-            tasks[i].style.display = '';
-        } else {
-            tasks[i].style.display = 'none';
-        }
-    }
+// Function to show all tasks
+function filter() {  
 }
